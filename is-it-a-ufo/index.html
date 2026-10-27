@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Is It a UFO? | Skywatch Ledger</title>
+<meta name="description" content="Saw something strange in the sky? Answer six quick questions and find out if it was Starlink, a planet, a drone, a satellite, or something worth reporting.">
+<meta property="og:title" content="Is It a UFO?">
+<meta property="og:description" content="Six questions. Find out if what you saw was Starlink, Venus, a drone, or something worth reporting.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vtg0989-sudo.github.io/skywatch-ledger/is-it-a-ufo/">
+<meta property="og:image" content="https://vtg0989-sudo.github.io/skywatch-ledger/is-it-a-ufo/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://vtg0989-sudo.github.io/skywatch-ledger/is-it-a-ufo/og.png">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4798121032462529" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../style.css">
+<style>
+.checker{padding-block:40px 48px}
+.checker .wrap{display:grid;gap:22px}
+.crumbs{font-size:14px;color:var(--muted)}
+.crumbs a{color:var(--accent)}
+.intro h1{font:700 clamp(40px,7vw,72px)/.95 var(--display);text-transform:uppercase;margin:0}
+.intro h1 span{color:var(--accent)}
+.intro p{color:var(--muted);font-size:18px;margin:10px 0 0;max-width:60ch}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:24px;display:grid;gap:18px;max-width:760px}
+.progress{display:flex;gap:6px}
+.progress i{flex:1;height:4px;border-radius:2px;background:var(--line)}
+.progress i.on{background:var(--accent)}
+.qnum{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--signal)}
+.q{font:700 26px/1.2 var(--display);margin:0;text-wrap:balance}
+.opts{display:grid;gap:10px}
+.opts button{font:400 17px var(--body);text-align:left;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:14px 16px;cursor:pointer}
+.opts button:hover{border-color:var(--accent)}
+.opts button[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.opts button:focus-visible,.nav button:focus-visible,.share a:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+.nav{display:flex;justify-content:space-between;gap:10px}
+.nav button,.share a,.share button{font:700 15px var(--body);border-radius:6px;padding:10px 16px;cursor:pointer;text-decoration:none}
+.nav button{background:transparent;color:var(--muted);border:1px solid var(--line)}
+.nav button:disabled{opacity:.4;cursor:default}
+.verdict-label{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--signal)}
+.verdict{font:700 clamp(30px,5vw,44px)/1.05 var(--display);text-transform:uppercase;margin:0;color:var(--accent);text-wrap:balance}
+.meter{display:flex;align-items:center;gap:12px;font:500 14px var(--mono);color:var(--muted)}
+.meter b{display:block;height:8px;border-radius:4px;background:var(--line);flex:1;max-width:240px;position:relative;overflow:hidden}
+.meter b i{position:absolute;inset:0 auto 0 0;background:var(--accent)}
+.why{margin:0;color:var(--fg)}
+.confirm{margin:0;padding-left:20px;display:grid;gap:6px}
+.confirm a{color:var(--accent)}
+.also{color:var(--muted);font-size:15px;margin:0}
+.share{display:flex;flex-wrap:wrap;gap:10px}
+.share a.x{background:var(--fg);color:var(--bg)}
+.share button{background:transparent;color:var(--fg);border:1px solid var(--line)}
+.checks-list{color:var(--muted);font-size:15px;max-width:70ch}
+</style>
+</head>
+<body>
+<main class="checker"><div class="wrap">
+  <nav class="crumbs"><a href="../">Skywatch Ledger</a> / Is it a UFO?</nav>
+  <div class="intro">
+    <h1>Is it a <span>UFO?</span></h1>
+    <p>Answer six quick questions about what you saw. The checker compares your answers with the things most often mistaken for UFOs, and tells you when a sighting doesn't fit any of them.</p>
+  </div>
+
+  <section class="card" id="ask" aria-live="polite">
+    <div class="progress" id="progress"></div>
+    <span class="qnum" id="qnum"></span>
+    <h2 class="q" id="q"></h2>
+    <div class="opts" id="opts"></div>
+    <div class="nav"><button type="button" id="back">Back</button></div>
+  </section>
+
+  <section class="card" id="result" hidden aria-live="polite">
+    <span class="verdict-label" id="vlabel">Most likely</span>
+    <h2 class="verdict" id="verdict"></h2>
+    <div class="meter" id="meter"></div>
+    <p class="why" id="why"></p>
+    <div><strong>How to confirm</strong><ul class="confirm" id="confirm"></ul></div>
+    <p class="also" id="also"></p>
+    <div class="share">
+      <a class="x" id="share-x" target="_blank" rel="noopener">Post your result on X</a>
+      <button type="button" id="restart">Check another sighting</button>
+    </div>
+  </section>
+
+  <p class="checks-list">It checks for Starlink satellite trains, Venus and Jupiter, satellites and the Space Station, satellite glints, airplanes, drones, sky lanterns and balloons, meteors, rocket launch plumes and twinkling stars. If your answers don't match any of them well, it'll tell you how to document and report the sighting.</p>
+</div></main>
+
+<footer><div class="wrap site-foot"><p>This checker gives a best guess from your answers. It can't see what you saw, so treat a strong match as a lead to confirm, not a final answer.</p><nav><a href="../">Home</a><a href="../blog/">UAP Log</a><a href="../privacy.html">Privacy policy</a><a href="https://vtg0989-sudo.github.io/">More sites &amp; tools</a></nav></div></footer>
+
+<script>
+(function () {
+  var C = {
+    starlink: { name: 'A Starlink satellite train', why: 'A line of evenly spaced lights moving together, especially near dusk or dawn, is the signature of SpaceX Starlink satellites shortly after a launch, before they spread out.',
+      confirm: [['Find Starlink: check passes for your location and time', 'https://findstarlink.com/'], ['Heavens-Above: satellite pass predictions', 'https://www.heavens-above.com/']] },
+    planet: { name: 'A bright planet (Venus or Jupiter)', why: 'A very bright, steady light low in the sky that seems to hang in place for a long time is usually Venus or Jupiter. Haze near the horizon can make them seem to pulse or change color.',
+      confirm: [['Stellarium Web: see which planets were up at that time', 'https://stellarium-web.org/']] },
+    satellite: { name: 'A satellite or the Space Station', why: 'A steady point of light gliding in a straight line over a few minutes, with no blinking and no sound, matches a satellite or the International Space Station catching sunlight.',
+      confirm: [['NASA Spot the Station: ISS passes near you', 'https://spotthestation.nasa.gov/'], ['Heavens-Above: other bright satellites', 'https://www.heavens-above.com/']] },
+    flare: { name: 'A satellite glint', why: 'A light that brightens for a few seconds and then fades out as it moves is sunlight flashing off a satellite’s panels. The Pentagon’s UAP office traced all 44 of its space-domain reports last year to reflected sunlight.',
+      confirm: [['Heavens-Above: satellite passes and flares', 'https://www.heavens-above.com/']] },
+    aircraft: { name: 'An airplane', why: 'Blinking red, green and white lights on a steady path, often with engine noise, point to an aircraft. Planes flying toward you with landing lights on can seem to hover for minutes.',
+      confirm: [['Flightradar24: check flights over your location at that time', 'https://www.flightradar24.com/']] },
+    drone: { name: 'A drone', why: 'Hovering, sudden darting or direction changes, colored lights and a buzzing sound are typical of hobby and commercial drones, which are now common at night.',
+      confirm: [['Next time, listen for a buzz and look for blinking navigation lights', ''], ['Check whether a drone light show, event or construction site was nearby', '']] },
+    lantern: { name: 'A sky lantern or balloon', why: 'Orange glowing orbs that rise slowly or drift with the wind, often in a group, are almost always sky lanterns. In daylight, a slow-drifting sphere is often a party or weather balloon.',
+      confirm: [['Compare the drift direction with the wind at the time', 'https://www.windy.com/'], ['Check for weddings, festivals or holidays nearby']] },
+    meteor: { name: 'A meteor or fireball', why: 'A fast streak with a tail that crosses the sky in a few seconds is a meteor. Very bright ones are called fireballs and are often seen by many people at once.',
+      confirm: [['American Meteor Society: report and see other fireball sightings', 'https://www.amsmeteors.org/']] },
+    rocket: { name: 'A rocket launch plume', why: 'A glowing cloud, spiral or jellyfish shape spreading across the sky near dusk or dawn is the exhaust plume of a rocket lit by the sun from below the horizon.',
+      confirm: [['Next Spaceflight: check launches around that time', 'https://nextspaceflight.com/']] },
+    star: { name: 'A twinkling star', why: 'A light that stays put but flickers and flashes different colors is often a bright star seen through turbulent air, especially low in the sky.',
+      confirm: [['Stellarium Web: identify bright stars in that part of the sky', 'https://stellarium-web.org/']] }
+  };
+  var Q = [
+    { q: 'When did you see it?', o: [
+      ['Within about 2 hours of sunset or sunrise', { starlink: 3, satellite: 2, flare: 2, rocket: 3, planet: 2 }],
+      ['In the middle of the night', { meteor: 1, aircraft: 1, drone: 1, star: 1, lantern: 1, satellite: 1 }],
+      ['In daylight', { aircraft: 2, lantern: 2, drone: 2 }]] },
+    { q: 'What did it look like?', o: [
+      ['A line of evenly spaced dots', { starlink: 6 }],
+      ['One steady, bright light', { planet: 3, satellite: 2, aircraft: 1 }],
+      ['Blinking or colored lights (red, green, white)', { aircraft: 3, drone: 3, star: 1 }],
+      ['One or more glowing orange orbs', { lantern: 5 }],
+      ['A glowing cloud, spiral or jellyfish shape', { rocket: 6 }],
+      ['A bright streak with a tail', { meteor: 6 }],
+      ['A twinkling light that changed colors', { star: 4, planet: 1 }],
+      ['A solid shape, like a disc, sphere or triangle', { lantern: 2, drone: 2, aircraft: 1 }]] },
+    { q: 'How did it move?', o: [
+      ['It didn’t move, or barely moved', { planet: 4, star: 4, drone: 1 }],
+      ['A steady, straight path across the sky', { satellite: 4, starlink: 3, aircraft: 2 }],
+      ['Several lights moved together in a line', { starlink: 3 }],
+      ['It drifted slowly or rose, like it was on the wind', { lantern: 4 }],
+      ['It hovered, then darted or changed direction', { drone: 4 }],
+      ['It crossed the sky in a few seconds', { meteor: 4 }],
+      ['It got brighter, then faded out as it moved', { flare: 6, satellite: 1 }]] },
+    { q: 'Did it make any sound?', o: [
+      ['A buzzing or whirring sound', { drone: 5 }],
+      ['An engine rumble', { aircraft: 5 }],
+      ['No sound at all', { planet: 1, star: 1, satellite: 1, starlink: 1, flare: 1, lantern: 1, meteor: 1, rocket: 1 }],
+      ['Not sure, or it was too far away', {}]] },
+    { q: 'How long did you see it?', o: [
+      ['A few seconds', { meteor: 3, flare: 3 }],
+      ['A few minutes', { satellite: 2, starlink: 2, aircraft: 2, lantern: 2, rocket: 2, drone: 1 }],
+      ['More than 10 minutes', { planet: 3, star: 3, drone: 2 }]] },
+    { q: 'Where in the sky was it?', o: [
+      ['Low, near the horizon', { planet: 3, star: 1, aircraft: 1, lantern: 1 }],
+      ['High overhead', { satellite: 1, starlink: 1, meteor: 1 }],
+      ['Somewhere in between, or not sure', {}]] }
+  ];
+  var answers = [], step = 0, $ = function (id) { return document.getElementById(id); };
+  var SITE = 'https://vtg0989-sudo.github.io/skywatch-ledger/is-it-a-ufo/';
+
+  function render() {
+    $('ask').hidden = false; $('result').hidden = true;
+    var item = Q[step];
+    $('progress').innerHTML = Q.map(function (_, i) { return '<i class="' + (i <= step ? 'on' : '') + '"></i>'; }).join('');
+    $('qnum').textContent = 'Question ' + (step + 1) + ' of ' + Q.length;
+    $('q').textContent = item.q;
+    var box = $('opts'); box.innerHTML = '';
+    item.o.forEach(function (opt, i) {
+      var b = document.createElement('button'); b.type = 'button'; b.textContent = opt[0];
+      b.setAttribute('aria-pressed', answers[step] === i ? 'true' : 'false');
+      b.addEventListener('click', function () { answers[step] = i; if (step < Q.length - 1) { step++; render(); } else score(); });
+      box.appendChild(b);
+    });
+    $('back').disabled = step === 0;
+  }
+  function score() {
+    var s = {}; Object.keys(C).forEach(function (k) { s[k] = 0; });
+    answers.forEach(function (a, i) { var w = Q[i].o[a][1]; Object.keys(w).forEach(function (k) { s[k] += w[k]; }); });
+    var ranked = Object.keys(s).sort(function (a, b) { return s[b] - s[a]; });
+    var top = ranked[0], pts = s[top];
+    var level = pts >= 14 ? ['Strong match', 0.9] : pts >= 11 ? ['Likely match', 0.68] : pts >= 9 ? ['Possible match', 0.45] : ['Weak match', 0.22];
+    $('ask').hidden = true; $('result').hidden = false;
+    var unexplained = pts < 9;
+    var confirm = $('confirm'); confirm.innerHTML = '';
+    if (unexplained) {
+      $('vlabel').textContent = 'Verdict';
+      $('verdict').textContent = 'Doesn’t match the usual suspects';
+      $('why').textContent = 'Your answers don’t fit any of the common explanations well. The closest was ' + C[top].name.toLowerCase() + ', but key details don’t line up. That makes your sighting worth documenting carefully.';
+      [['Write down the exact date, time, location, direction and duration while it’s fresh', ''],
+       ['Report it to NUFORC, the National UFO Reporting Center', 'https://nuforc.org/'],
+       ['Or report it to MUFON, which has volunteer field investigators', 'https://www.mufon.com/'],
+       ['See the full checklist for documenting a sighting', '../']].forEach(add);
+      lastShare = 'I ran my sighting through the Skywatch Ledger UFO checker. Verdict: it doesn’t match Starlink, planets, drones or any of the usual suspects. 👽';
+    } else {
+      $('vlabel').textContent = 'Most likely';
+      $('verdict').textContent = C[top].name;
+      $('why').textContent = C[top].why;
+      C[top].confirm.forEach(add);
+      lastShare = 'I ran my sighting through the Skywatch Ledger UFO checker. Verdict: ' + C[top].name.charAt(0).toLowerCase() + C[top].name.slice(1) + '. 🛸';
+    }
+    $('meter').innerHTML = '<span>' + (unexplained ? 'Best match: weak' : level[0]) + '</span><b><i style="width:' + Math.round(level[1] * 100) + '%"></i></b>';
+    var runner = ranked.slice(1, 3).filter(function (k) { return s[k] >= 6; });
+    $('also').textContent = runner.length ? 'Also possible: ' + runner.map(function (k) { return C[k].name.toLowerCase(); }).join(', ') + '.' : '';
+    $('share-x').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(lastShare + '\n\nCheck yours:') + '&url=' + encodeURIComponent(SITE);
+  }
+  var lastShare = '';
+  function add(item) {
+    var li = document.createElement('li');
+    if (item[1]) { var a = document.createElement('a'); a.href = item[1]; a.textContent = item[0]; if (/^https?:/.test(item[1])) { a.target = '_blank'; a.rel = 'noopener'; } li.appendChild(a); }
+    else li.textContent = item[0];
+    $('confirm').appendChild(li);
+  }
+  $('back').addEventListener('click', function () { if (step > 0) { step--; render(); } });
+  $('restart').addEventListener('click', function () { answers = []; step = 0; render(); $('ask').scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+  render();
+})();
+</script>
+</body>
+</html>

@@ -70,3 +70,5 @@ footer{padding-block:32px;color:var(--muted);font-size:13px}
 .site-foot{display:grid;gap:10px}
 .site-foot nav{display:flex;flex-wrap:wrap;gap:16px}
 .site-foot a{color:var(--muted)}
+
+.hero-links{display:flex;flex-wrap:wrap;gap:8px 20px;margin:0}
