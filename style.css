@@ -1,0 +1,72 @@
+/* Layout: an observer's logbook at night. Single dark theme by choice: a star field header, case-file figures, then field procedure. */
+:root{
+  --bg:#0a0d14; --surface:#121827; --fg:#e3e8f2; --muted:#8c97ad; --line:#232c40;
+  --accent:#ffb547; --signal:#7fd3ff;
+  --display:"Chakra Petch", "Segoe UI", system-ui, sans-serif;
+  --body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --mono:"DM Mono", ui-monospace, Menlo, monospace;
+  color-scheme:dark;
+}
+body{background:var(--bg);color:var(--fg);font:17px/1.6 var(--body)}
+.wrap{max-width:1000px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+header canvas{position:absolute;inset:0;width:100%;height:100%}
+header .wrap{position:relative;padding-block:72px 44px;display:grid;gap:14px}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--signal)}
+h1{font:700 clamp(44px,8vw,84px)/.95 var(--display);margin:0;text-transform:uppercase;letter-spacing:.01em;text-wrap:balance}
+h1 span{color:var(--accent)}
+.lede{max-width:58ch;color:var(--muted);font-size:19px;margin:0}
+h2{font:700 30px/1.1 var(--display);text-transform:uppercase;margin:0;text-wrap:balance}
+h3{font:700 18px/1.3 var(--body);margin:0}
+section{padding-block:44px;border-bottom:1px solid var(--line)}
+section>.wrap{display:grid;gap:20px}
+p{margin:0;max-width:66ch}
+.muted{color:var(--muted)}
+.figures{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+@media (max-width:760px){.figures{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fig{background:var(--surface);padding:18px;display:grid;gap:4px;align-content:start}
+.fig b{font:700 40px/1 var(--display);color:var(--accent);font-variant-numeric:tabular-nums}
+.fig span{font-size:14px;color:var(--muted)}
+.src{font:400 13px var(--mono);color:var(--muted)}
+.checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.check{border:1px solid var(--line);background:var(--surface);padding:16px 18px;display:grid;gap:6px;border-radius:3px}
+.check .tell{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--signal)}
+.check p{font-size:15px;color:var(--muted)}
+ol.proc{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:s}
+ol.proc li{counter-increment:s;display:grid;grid-template-columns:56px minmax(0,1fr);gap:16px;padding-block:14px;border-top:1px solid var(--line)}
+ol.proc li::before{content:counter(s,decimal-leading-zero);font:500 22px var(--mono);color:var(--accent)}
+ol.proc p{font-size:16px}
+.where{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.where a{display:grid;gap:4px;padding:16px 18px;border:1px solid var(--accent);color:var(--fg);text-decoration:none;border-radius:3px}
+.where a b{color:var(--accent);font-family:var(--display);font-size:20px;text-transform:uppercase}
+.where a span{color:var(--muted);font-size:15px}
+.kit{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.item{display:grid;gap:6px;align-content:start;border-top:2px solid var(--signal);padding-top:12px}
+.item small{font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--signal)}
+.item p{font-size:15px;color:var(--muted)}
+.item a{color:var(--accent);font-weight:700;font-size:15px}
+a:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+footer{padding-block:32px;color:var(--muted);font-size:13px}
+
+.jump{font-size:14px;font-weight:600;color:var(--accent);text-decoration:none}
+.post-list{display:grid;gap:0}
+.post-item{display:grid;gap:6px;padding-block:18px;border-top:1px solid var(--line)}
+.post-item:first-child{border-top:0;padding-top:0}
+.post-item time,.post time{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.post-item h3{margin:0;font-size:20px}
+.post-item h3 a{color:var(--fg);text-decoration:none}
+.post-item h3 a:hover{text-decoration:underline}
+.post-item p{color:var(--muted);font-size:15px}
+.empty{color:var(--muted)}
+.post-page{padding-block:40px 24px;display:grid;gap:24px}
+.crumbs{font-size:14px;color:var(--muted)}
+.crumbs a,.back a{color:var(--accent)}
+.post{display:grid;gap:14px;max-width:68ch}
+.post h1{font-family:var(--display);font-size:clamp(32px,5vw,48px);line-height:1.08;margin:0;text-wrap:balance}
+.post h2{font-size:24px;margin:12px 0 0}
+.post p,.post li{max-width:66ch}
+.post ul,.post ol{margin:0;padding-left:22px;display:grid;gap:6px}
+.post a{color:var(--accent)}
+.site-foot{display:grid;gap:10px}
+.site-foot nav{display:flex;flex-wrap:wrap;gap:16px}
+.site-foot a{color:var(--muted)}

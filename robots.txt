@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vtg0989-sudo.github.io/skywatch-ledger/sitemap.xml
