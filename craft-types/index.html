@@ -13,7 +13,7 @@
 <meta name="twitter:image" content="https://skywatchledger.com/og.png">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4798121032462529" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&family=DM+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="../style.css?v=4">
+<link rel="stylesheet" href="../style.css?v=5">
 <style>
 .cts{padding-block:40px 48px}
 .cts .wrap{display:grid;gap:24px}
@@ -49,6 +49,14 @@
 .ct dd{margin:0;color:var(--fg)}
 .kc{font:500 12px var(--mono)!important;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border-top:1px dashed var(--line);padding-top:8px}
 .note{color:var(--muted);font-size:14px;max-width:72ch}
+
+.ct-side{display:grid;gap:8px;align-content:start}
+.sight{margin:0;display:grid;gap:3px}
+.sight img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:3px;background:#000;display:block}
+.sight figcaption{font:400 10px/1.35 var(--mono);color:var(--muted)}
+.st{display:inline-block;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:1px 5px;border-radius:3px;margin-right:2px}
+.st-unresolved{background:var(--accent);color:var(--bg)} .st-disputed{background:#c58cff;color:#140c1f} .st-hoax{background:#ff6b6b;color:#1a0707} .st-explained{background:var(--line);color:var(--fg)}
+@media (max-width:480px){.ct-side{grid-template-columns:120px minmax(0,1fr);align-items:start}.ct-side svg{width:120px}}
 </style>
 </head>
 <body>
@@ -56,7 +64,13 @@
   <a class="tn-brand" href="../">Skywatch<span>Ledger</span></a>
   <div class="tn-links">
     <a href="../is-it-a-ufo/">UFO checker</a>
-    <a href="../evidence/">Evidence</a>
+    <div class="tn-dd">
+      <button type="button" class="tn-dd-btn" aria-expanded="false" aria-haspopup="true">Evidence <span aria-hidden="true">▾</span></button>
+      <div class="tn-menu">
+        <a href="../evidence/">Official footage</a>
+        <a href="../evidence/whistleblowers/">Whistleblowers</a>
+      </div>
+    </div>
     <a href="../craft-types/">Craft types</a>
     <a href="../timeline/">Timeline</a>
     <a href="../blog/">UAP Log</a>
@@ -75,7 +89,8 @@
   </section>
   <section class="types">
 <article class="ct">
-  <svg viewBox="0 0 120 80" aria-hidden="true"><circle cx="60" cy="40" r="26"/><ellipse cx="52" cy="32" rx="8" ry="5" class="hl"/></svg>
+  <div class="ct-side">
+  <svg viewBox="0 0 120 80" aria-hidden="true"><circle cx="60" cy="40" r="26"/><ellipse cx="52" cy="32" rx="8" ry="5" class="hl"/></svg><figure class="sight"><a href="https://commons.wikimedia.org/wiki/File:DOW-UAP-PR035,_Unresolved_UAP_Report,_Greece,_October_2023_(1006082).webm" target="_blank" rel="noopener"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/DOW-UAP-PR035%2C_Unresolved_UAP_Report%2C_Greece%2C_October_2023_%281006082%29.webm/500px--DOW-UAP-PR035%2C_Unresolved_UAP_Report%2C_Greece%2C_October_2023_%281006082%29.webm.jpg" alt="Greece, 2023 · U.S. military infrared" loading="lazy"></a><figcaption><span class="st st-unresolved">Unresolved</span> Greece, 2023 · U.S. military infrared</figcaption></figure></div>
   <div class="ct-body">
     <div class="ct-head"><h3>Orb / sphere</h3><span class="share">52% of reports</span></div>
     <p>The most common shape by far: a round object, often white, silver or translucent, sometimes seen against the wind or at odd orientations. AARO says typical reports describe objects 1 to 4 meters across, seen between 10,000 and 30,000 feet.</p>
@@ -84,7 +99,8 @@
   </div>
 </article>
 <article class="ct">
-  <svg viewBox="0 0 120 80" aria-hidden="true"><rect x="18" y="26" width="84" height="28" rx="14"/></svg>
+  <div class="ct-side">
+  <svg viewBox="0 0 120 80" aria-hidden="true"><rect x="18" y="26" width="84" height="28" rx="14"/></svg><figure class="sight"><a href="https://commons.wikimedia.org/wiki/File:FLIR1_Official_UAP_Footage_from_the_USG_for_Public_Release.webm" target="_blank" rel="noopener"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/FLIR1_Official_UAP_Footage_from_the_USG_for_Public_Release.webm/330px--FLIR1_Official_UAP_Footage_from_the_USG_for_Public_Release.webm.jpg" alt="Nimitz FLIR1, 2004 · U.S. Navy" loading="lazy"></a><figcaption><span class="st st-unresolved">Unresolved</span> Nimitz FLIR1, 2004 · U.S. Navy</figcaption></figure></div>
   <div class="ct-body">
     <div class="ct-head"><h3>Tic Tac</h3><span class="share">6% of reports</span></div>
     <p>A smooth, white, wingless capsule shape with no visible engines, wings or exhaust, named after the breath mint.</p>
@@ -93,7 +109,7 @@
   </div>
 </article>
 <article class="ct">
-  <svg viewBox="0 0 120 80" aria-hidden="true"><circle cx="60" cy="40" r="30" class="ghost"/><rect x="45" y="25" width="30" height="30"/></svg>
+  <div class="ct-side"><svg viewBox="0 0 120 80" aria-hidden="true"><circle cx="60" cy="40" r="30" class="ghost"/><rect x="45" y="25" width="30" height="30"/></svg></div>
   <div class="ct-body">
     <div class="ct-head"><h3>Cube in a sphere</h3><span class="share">Part of the &quot;square&quot; reports (3%)</span></div>
     <p>A dark gray or black cube that appears to sit inside a clear sphere.</p>
@@ -102,7 +118,8 @@
   </div>
 </article>
 <article class="ct">
-  <svg viewBox="0 0 120 80" aria-hidden="true"><ellipse cx="60" cy="46" rx="48" ry="11"/><path d="M36 44 Q60 14 84 44" /></svg>
+  <div class="ct-side">
+  <svg viewBox="0 0 120 80" aria-hidden="true"><ellipse cx="60" cy="46" rx="48" ry="11"/><path d="M36 44 Q60 14 84 44" /></svg><figure class="sight"><a href="https://commons.wikimedia.org/wiki/File:UFO_picture_taken_by_Paul_Trent_in_McMinnville,_Oregon.jpg" target="_blank" rel="noopener"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/UFO_picture_taken_by_Paul_Trent_in_McMinnville%2C_Oregon.jpg/500px-UFO_picture_taken_by_Paul_Trent_in_McMinnville%2C_Oregon.jpg" alt="McMinnville, Oregon, 1950 · Paul Trent" loading="lazy"></a><figcaption><span class="st st-disputed">Disputed</span> McMinnville, Oregon, 1950 · Paul Trent</figcaption></figure><figure class="sight"><a href="https://commons.wikimedia.org/wiki/File:2009-10-02_Ilha_da_Trindade_135.jpg" target="_blank" rel="noopener"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/2009-10-02_Ilha_da_Trindade_135.jpg/500px-2009-10-02_Ilha_da_Trindade_135.jpg" alt="Trindade Island, Brazil, 1958 · Almiro Baraúna" loading="lazy"></a><figcaption><span class="st st-disputed">Disputed</span> Trindade Island, Brazil, 1958 · Almiro Baraúna</figcaption></figure></div>
   <div class="ct-body">
     <div class="ct-head"><h3>Disk / saucer</h3><span class="share">2% of reports</span></div>
     <p>The classic &quot;flying saucer&quot;: a flat, round craft, sometimes with a dome. It defined UFOs in pop culture, yet it&#x27;s rare in modern military reports.</p>
@@ -111,7 +128,8 @@
   </div>
 </article>
 <article class="ct">
-  <svg viewBox="0 0 120 80" aria-hidden="true"><path d="M60 12 L106 66 L14 66 Z"/><circle cx="60" cy="24" r="3" class="dot"/><circle cx="24" cy="60" r="3" class="dot"/><circle cx="96" cy="60" r="3" class="dot"/><circle cx="60" cy="48" r="4" class="dot"/></svg>
+  <div class="ct-side">
+  <svg viewBox="0 0 120 80" aria-hidden="true"><path d="M60 12 L106 66 L14 66 Z"/><circle cx="60" cy="24" r="3" class="dot"/><circle cx="24" cy="60" r="3" class="dot"/><circle cx="96" cy="60" r="3" class="dot"/><circle cx="60" cy="48" r="4" class="dot"/></svg><figure class="sight"><a href="https://commons.wikimedia.org/wiki/File:TriangleBelgium1990.jpg" target="_blank" rel="noopener"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/TriangleBelgium1990.jpg/500px-TriangleBelgium1990.jpg" alt="Petit-Rechain, Belgium, 1990 · its photographer admitted in 2011 it was faked" loading="lazy"></a><figcaption><span class="st st-hoax">Hoax</span> Petit-Rechain, Belgium, 1990 · its photographer admitted in 2011 it was faked</figcaption></figure></div>
   <div class="ct-body">
     <div class="ct-head"><h3>Triangle</h3><span class="share">2% of reports</span></div>
     <p>A large black or dark triangle, usually with a light at each corner and sometimes one in the center. Often described as silent and slow.</p>
@@ -120,7 +138,7 @@
   </div>
 </article>
 <article class="ct">
-  <svg viewBox="0 0 120 80" aria-hidden="true"><rect x="14" y="30" width="92" height="20" rx="10"/><path d="M28 30 v20 M92 30 v20"/></svg>
+  <div class="ct-side"><svg viewBox="0 0 120 80" aria-hidden="true"><rect x="14" y="30" width="92" height="20" rx="10"/><path d="M28 30 v20 M92 30 v20"/></svg></div>
   <div class="ct-body">
     <div class="ct-head"><h3>Cylinder / cigar</h3><span class="share">1% of reports</span></div>
     <p>A long, tube-like object with rounded or flat ends, sometimes described as a &quot;cigar&quot; or &quot;rocket&quot; shape.</p>
@@ -129,7 +147,8 @@
   </div>
 </article>
 <article class="ct">
-  <svg viewBox="0 0 120 80" aria-hidden="true"><circle cx="22" cy="40" r="5" class="dot"/><circle cx="46" cy="40" r="5" class="dot"/><circle cx="70" cy="40" r="5" class="dot"/><circle cx="94" cy="40" r="5" class="dot"/></svg>
+  <div class="ct-side">
+  <svg viewBox="0 0 120 80" aria-hidden="true"><circle cx="22" cy="40" r="5" class="dot"/><circle cx="46" cy="40" r="5" class="dot"/><circle cx="70" cy="40" r="5" class="dot"/><circle cx="94" cy="40" r="5" class="dot"/></svg><figure class="sight"><a href="https://commons.wikimedia.org/wiki/File:Starlink_satellites_seen_from_Poland,_20241031_1752_2631.jpg" target="_blank" rel="noopener"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Starlink_satellites_seen_from_Poland%2C_20241031_1752_2631.jpg/500px-Starlink_satellites_seen_from_Poland%2C_20241031_1752_2631.jpg" alt="Starlink train, Poland, 2024 · Jakub Hałun, CC BY 4.0" loading="lazy"></a><figcaption><span class="st st-explained">Explained</span> Starlink train, Poland, 2024 · Jakub Hałun, CC BY 4.0</figcaption></figure></div>
   <div class="ct-body">
     <div class="ct-head"><h3>Lights in formation</h3><span class="share">1% (lights only)</span></div>
     <p>Several lights moving together, either in a line or a fixed pattern, with no solid shape visible.</p>
@@ -138,7 +157,7 @@
   </div>
 </article>
 <article class="ct">
-  <svg viewBox="0 0 120 80" aria-hidden="true"><path d="M12 56 L60 22 L108 56 L60 38 Z"/></svg>
+  <div class="ct-side"><svg viewBox="0 0 120 80" aria-hidden="true"><path d="M12 56 L60 22 L108 56 L60 38 Z"/></svg></div>
   <div class="ct-body">
     <div class="ct-head"><h3>Boomerang / chevron</h3><span class="share">Grouped with &quot;other&quot;</span></div>
     <p>A V or crescent shape, sometimes with lights along the edges.</p>
@@ -147,9 +166,10 @@
   </div>
 </article>
   </section>
-  <p class="note">The flying saucer dominates movies, but it's one of the rarest shapes in military reports today; plain round orbs are the overwhelming majority. Saw one of these yourself? <a href="../is-it-a-ufo/">Run it through the UFO checker</a> or <a href="../evidence/">watch the official footage</a>.</p>
+  <p class="note">Photos under each shape are real images people have reported or that the military released, labeled by status: unresolved, disputed, explained or hoax. The flying saucer dominates movies, but it's one of the rarest shapes in military reports today; plain round orbs are the overwhelming majority. Saw one of these yourself? <a href="../is-it-a-ufo/">Run it through the UFO checker</a> or <a href="../evidence/">watch the official footage</a>.</p>
 </div></main>
 <footer><div class="wrap site-foot"><p>Affiliate disclosure: links marked "Check price" may be affiliate links. If you buy through them, this site may earn a commission at no added cost to you. Figures are from public government reports; follow the sources and judge for yourself.</p><p>As an Amazon Associate, Skywatch Ledger earns from qualifying purchases.</p><nav><a href="../">Home</a><a href="../blog/">UAP Log</a><a href="../is-it-a-ufo/">UFO checker</a><a href="../timeline/">Timeline</a><a href="../evidence/">Evidence room</a><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of use</a></nav></div></footer>
 <script>(function(){var p=location.pathname.replace(/index\.html$/,"");document.querySelectorAll(".tn-links a").forEach(function(a){var h=new URL(a.href).pathname;if(h!=="/"&&p.indexOf(h)===0)a.setAttribute("aria-current","page");});})();</script>
+<script>(function(){var d=document.querySelector(".tn-dd");if(!d)return;var b=d.querySelector(".tn-dd-btn");b.addEventListener("click",function(e){e.stopPropagation();var o=d.classList.toggle("open");b.setAttribute("aria-expanded",o);});document.addEventListener("click",function(){d.classList.remove("open");b.setAttribute("aria-expanded","false");});document.addEventListener("keydown",function(e){if(e.key==="Escape"){d.classList.remove("open");b.setAttribute("aria-expanded","false");}});if(location.pathname.indexOf("/evidence/")===0)b.setAttribute("aria-current","page");})();</script>
 </body>
 </html>

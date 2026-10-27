@@ -13,14 +13,20 @@
 <meta name="twitter:image" content="https://skywatchledger.com/og.png">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4798121032462529" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&family=DM+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 <nav class="topnav" aria-label="Main"><div class="wrap">
   <a class="tn-brand" href="">Skywatch<span>Ledger</span></a>
   <div class="tn-links">
     <a href="is-it-a-ufo/">UFO checker</a>
-    <a href="evidence/">Evidence</a>
+    <div class="tn-dd">
+      <button type="button" class="tn-dd-btn" aria-expanded="false" aria-haspopup="true">Evidence <span aria-hidden="true">▾</span></button>
+      <div class="tn-menu">
+        <a href="evidence/">Official footage</a>
+        <a href="evidence/whistleblowers/">Whistleblowers</a>
+      </div>
+    </div>
     <a href="craft-types/">Craft types</a>
     <a href="timeline/">Timeline</a>
     <a href="blog/">UAP Log</a>
@@ -55,5 +61,6 @@
 </article></div>
 <footer><div class="wrap site-foot"><p>Affiliate disclosure: links marked "Check price" may be affiliate links. If you buy through them, this site may earn a commission at no added cost to you. Figures are from public government reports; follow the sources and judge for yourself.</p><p>As an Amazon Associate, Skywatch Ledger earns from qualifying purchases.</p><nav><a href="">Home</a><a href="blog/">UAP Log</a><a href="is-it-a-ufo/">UFO checker</a><a href="timeline/">Timeline</a><a href="evidence/">Evidence room</a><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of use</a></nav></div></footer>
 <script>(function(){var p=location.pathname.replace(/index\.html$/,"");document.querySelectorAll(".tn-links a").forEach(function(a){var h=new URL(a.href).pathname;if(h!=="/"&&p.indexOf(h)===0)a.setAttribute("aria-current","page");});})();</script>
+<script>(function(){var d=document.querySelector(".tn-dd");if(!d)return;var b=d.querySelector(".tn-dd-btn");b.addEventListener("click",function(e){e.stopPropagation();var o=d.classList.toggle("open");b.setAttribute("aria-expanded",o);});document.addEventListener("click",function(){d.classList.remove("open");b.setAttribute("aria-expanded","false");});document.addEventListener("keydown",function(e){if(e.key==="Escape"){d.classList.remove("open");b.setAttribute("aria-expanded","false");}});if(location.pathname.indexOf("/evidence/")===0)b.setAttribute("aria-current","page");})();</script>
 </body>
 </html>
