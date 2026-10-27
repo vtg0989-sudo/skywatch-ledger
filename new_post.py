@@ -36,7 +36,7 @@ def insert(path, entry, limit=None):
     open(path, 'w').write(s)
 
 def sitemap():
-    urls = ['', 'is-it-a-ufo/', 'timeline/', 'evidence/', 'blog/', 'privacy.html'] + sorted(os.path.relpath(p, ROOT) for p in glob.glob(os.path.join(ROOT,'blog','*.html')) if not p.endswith('index.html'))
+    urls = ['', 'is-it-a-ufo/', 'timeline/', 'evidence/', 'blog/', 'privacy.html', 'terms.html'] + sorted(os.path.relpath(p, ROOT) for p in glob.glob(os.path.join(ROOT,'blog','*.html')) if not p.endswith('index.html'))
     open(os.path.join(ROOT,'sitemap.xml'),'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'<url><loc>{BASE}{u}</loc></url>\n' for u in urls) + '</urlset>\n')
 
 def main():

@@ -72,3 +72,15 @@ footer{padding-block:32px;color:var(--muted);font-size:13px}
 .site-foot a{color:var(--muted)}
 
 .hero-links{display:flex;flex-wrap:wrap;gap:8px 20px;margin:0}
+
+/* top navigation */
+.topnav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topnav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px 20px;flex-wrap:wrap;padding-block:12px}
+.tn-brand{font:700 18px/1 var(--display);text-transform:uppercase;letter-spacing:.02em;color:var(--fg);text-decoration:none;white-space:nowrap}
+.tn-brand span{color:var(--accent);margin-left:5px}
+.tn-links{display:flex;gap:4px 18px;overflow-x:auto;scrollbar-width:none;max-width:100%}
+.tn-links::-webkit-scrollbar{display:none}
+.tn-links a{font:500 13px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;white-space:nowrap;padding-block:4px}
+.tn-links a:hover,.tn-links a[aria-current="page"]{color:var(--accent)}
+.topnav a:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+@media (max-width:560px){.topnav .wrap{padding-block:10px}.tn-links{width:100%;gap:4px 16px}}
