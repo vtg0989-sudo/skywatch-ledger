@@ -84,3 +84,18 @@ footer{padding-block:32px;color:var(--muted);font-size:13px}
 .tn-links a:hover,.tn-links a[aria-current="page"]{color:var(--accent)}
 .topnav a:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
 @media (max-width:560px){.topnav .wrap{padding-block:10px}.tn-links{width:100%;gap:4px 16px}}
+
+/* photos */
+.ph{margin:0;display:grid;gap:4px}
+.ph img{display:block;width:100%;max-width:100%;object-fit:cover;background:#000;border-radius:4px}
+.ph figcaption{font:400 11px var(--mono);color:var(--muted);letter-spacing:.02em}
+.ph figcaption a{color:var(--muted)}
+.ph.card{margin:-16px -18px 4px}
+.ph.card img{aspect-ratio:16/9;border-radius:3px 3px 0 0}
+.ph.card figcaption{padding:4px 18px 0}
+.ph.hero img{aspect-ratio:16/9;max-height:420px}
+.ph.tl{margin-top:6px}
+.ph.tl img{aspect-ratio:16/9;max-height:260px}
+.post-item.has-thumb{grid-template-columns:120px minmax(0,1fr);column-gap:16px;align-items:start}
+.post-item.has-thumb .pi-thumb{grid-row:1/span 3;width:120px;aspect-ratio:4/3;object-fit:cover;border-radius:4px;background:#000}
+@media (max-width:480px){.post-item.has-thumb{grid-template-columns:84px minmax(0,1fr)}.post-item.has-thumb .pi-thumb{width:84px}}

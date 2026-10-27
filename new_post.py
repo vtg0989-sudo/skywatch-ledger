@@ -21,8 +21,11 @@ def head(root, title, desc):
     h = re.sub(r'<meta property="og:description" content="[^"]*">', f'<meta property="og:description" content="{html.escape(desc)}">', h)
     return re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{html.escape(desc)}">', h)
 
-def item(date, href, title, excerpt):
+def item(date, href, title, excerpt, img=None):
     d = datetime.date.fromisoformat(date)
+    if img:
+        return (f'<article class="post-item has-thumb"><img class="pi-thumb" src="{html.escape(img)}" alt="" loading="lazy"><time datetime="{date}">{d.strftime("%b %-d, %Y")}</time>'
+                f'<h3><a href="{href}">{html.escape(title)}</a></h3><p>{html.escape(excerpt)}</p></article>')
     return (f'<article class="post-item"><time datetime="{date}">{d.strftime("%b %-d, %Y")}</time>'
             f'<h3><a href="{href}">{html.escape(title)}</a></h3><p>{html.escape(excerpt)}</p></article>')
 
@@ -41,6 +44,8 @@ def sitemap():
 
 def main():
     date, slug, title, excerpt, body_file = sys.argv[1:6]
+    # Optional IMAGE: image_url file_page_url "credit" "license"  (public domain or CC images from Wikimedia Commons)
+    img = sys.argv[6:10] if len(sys.argv) >= 10 else None
     datetime.date.fromisoformat(date)
     assert re.fullmatch(r'[a-z0-9-]+', slug), 'slug: lowercase letters, digits, hyphens'
     body = open(body_file).read().strip()
@@ -48,12 +53,15 @@ def main():
     d = datetime.date.fromisoformat(date)
     page = (head('../', f'{title} | {CFG["site_name"]}', excerpt) +
       f'<div class="wrap post-page"><nav class="crumbs"><a href="../">{html.escape(CFG["site_name"])}</a> / <a href="./">{html.escape(CFG["blog_name"])}</a></nav>\n'
-      f'<article class="post"><time datetime="{date}">{d.strftime("%b %-d, %Y")}</time><h1>{html.escape(title)}</h1>\n{body}\n</article>\n'
+      f'<article class="post"><time datetime="{date}">{d.strftime("%b %-d, %Y")}</time><h1>{html.escape(title)}</h1>\n' + (f'<figure class="ph hero"><img src="{html.escape(img[0])}" alt="" loading="lazy"><figcaption>{html.escape(img[2])} · <a href="{html.escape(img[1])}" target="_blank" rel="noopener">{html.escape(img[3])}</a></figcaption></figure>\n' if img else '') + f'{body}\n</article>\n'
       f'<p class="back"><a href="./">More from the {html.escape(CFG["blog_name"].lower())}</a></p></div>\n'
       + open(os.path.join(ROOT,'_footer.html')).read().replace('{root}','../') + '</body>\n</html>\n')
+    if img:
+        page = re.sub(r'<meta property="og:image" content="[^"]*">', f'<meta property="og:image" content="{html.escape(img[0])}">', page)
+        page = re.sub(r'<meta name="twitter:image" content="[^"]*">', f'<meta name="twitter:image" content="{html.escape(img[0])}">', page)
     open(os.path.join(ROOT,'blog',fname),'w').write(page)
-    insert(os.path.join(ROOT,'index.html'), item(date, f'blog/{fname}', title, excerpt), limit=5)
-    insert(os.path.join(ROOT,'blog','index.html'), item(date, fname, title, excerpt))
+    insert(os.path.join(ROOT,'index.html'), item(date, f'blog/{fname}', title, excerpt, img[0] if img else None), limit=5)
+    insert(os.path.join(ROOT,'blog','index.html'), item(date, fname, title, excerpt, img[0] if img else None))
     sitemap()
     print('added', fname)
 
