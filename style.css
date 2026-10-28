@@ -112,3 +112,7 @@ footer{padding-block:32px;color:var(--muted);font-size:13px}
 .tn-menu a{padding:8px 10px;border-radius:4px}
 .tn-menu a:hover{background:var(--bg)}
 @media (max-width:560px){.tn-links{gap:6px 14px}}
+
+.comments{margin-top:40px;padding-top:24px;border-top:1px solid var(--line)}
+.comments h2{margin:0 0 6px}
+.comments-note{color:var(--muted);font-size:15px;margin:0 0 16px}
