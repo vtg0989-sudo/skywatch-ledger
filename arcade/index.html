@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Arcade: Skywatch Defense | Skywatch Ledger</title>
+<meta name="description" content="Skywatch Defense: a free retro arcade game. Hold the line against waves of orbs, Tic Tacs, triangles and saucers. Plays in your browser on desktop and phone.">
+<meta property="og:title" content="Skywatch Defense: free UFO arcade game">
+<meta property="og:description" content="Waves of orbs, Tic Tacs, triangles and saucers. How long can you hold the sky?">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://skywatchledger.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://skywatchledger.com/og.png">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4798121032462529" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../style.css?v=6">
+<style>
+.arcade{padding-block:32px 48px}
+.arcade .wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+.arcade .wrap > *{min-width:0}
+.crumbs{font-size:14px;color:var(--muted)} .crumbs a{color:var(--accent)}
+.arcade h1{font:700 clamp(36px,6vw,64px)/.95 var(--display);text-transform:uppercase;margin:0}
+.arcade h1 span{color:var(--accent)}
+.arcade .lede{color:var(--muted);font-size:17px;margin:8px 0 0;max-width:62ch}
+.cab{width:100%;max-width:min(480px,calc((100svh - 200px) * .75));min-width:min(100%,280px);margin:0 auto;display:grid;gap:10px}
+.hud{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hud div{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:6px 8px;display:grid;gap:2px}
+.hud b{font:500 18px var(--mono);color:var(--fg);letter-spacing:0}
+.screen{position:relative;border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:0 0 0 4px var(--surface),0 0 40px rgba(127,211,255,.08)}
+.screen canvas{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:3/4;touch-action:none;outline:none}
+.overlay{position:absolute;inset:0;display:grid;place-content:center;gap:12px;text-align:center;padding:24px;background:rgba(10,13,20,.82)}
+.overlay[hidden]{display:none}
+.overlay h2{font:700 clamp(28px,7vw,40px)/1 var(--display);text-transform:uppercase;margin:0;color:var(--accent)}
+.overlay p{margin:0;color:var(--fg);max-width:32ch;justify-self:center}
+.overlay .btn{justify-self:center;font:700 16px var(--body);background:var(--accent);color:var(--bg);border:0;border-radius:4px;padding:12px 22px;cursor:pointer;text-decoration:none}
+.overlay .btn.alt{background:transparent;color:var(--signal);border:1px solid var(--signal);padding:10px 18px;font-size:14px}
+.overlay .btn:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+.pad{display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:10px;user-select:none;-webkit-user-select:none}
+.pad button{font:700 20px var(--display);text-transform:uppercase;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:18px 0;touch-action:none;-webkit-tap-highlight-color:transparent}
+.pad button.fire{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+.pad button.on{filter:brightness(1.3);transform:translateY(1px)}
+@media (hover:hover) and (pointer:fine){.pad{display:none}}
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;max-width:760px;margin:0 auto;width:100%}
+.how div{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;font-size:15px;color:var(--muted)}
+.how h3{font:700 15px var(--body);color:var(--fg);margin:0 0 4px}
+.how kbd{font:500 12px var(--mono);background:var(--bg);border:1px solid var(--line);border-radius:3px;padding:1px 5px;color:var(--fg)}
+.pts{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.pts span{font-family:var(--mono);color:var(--accent)}
+.note{color:var(--muted);font-size:14px;text-align:center}
+.note a{color:var(--accent)}
+</style>
+</head>
+<body>
+<nav class="topnav" aria-label="Main"><div class="wrap">
+  <a class="tn-brand" href="../">Skywatch<span>Ledger</span></a>
+  <div class="tn-links">
+    <a href="../is-it-a-ufo/">UFO checker</a>
+    <div class="tn-dd">
+      <button type="button" class="tn-dd-btn" aria-expanded="false" aria-haspopup="true">Evidence <span aria-hidden="true">▾</span></button>
+      <div class="tn-menu">
+        <a href="../evidence/">Official footage</a>
+        <a href="../evidence/whistleblowers/">Whistleblowers</a>
+      </div>
+    </div>
+    <a href="../craft-types/">Craft types</a>
+    <a href="../timeline/">Timeline</a>
+    <a href="../blog/">UAP Log</a>
+    <a href="../arcade/">Arcade</a>
+    <a href="../shop/">Shop</a>
+  </div>
+</div></nav>
+<main class="arcade"><div class="wrap">
+  <nav class="crumbs"><a href="../">Skywatch Ledger</a> / Arcade</nav>
+  <header style="border:0">
+    <h1>Skywatch <span>Defense</span></h1>
+    <p class="lede">They've stopped hiding. Waves of orbs, Tic Tacs, triangles and saucers are dropping out of the sky. Hold the line as long as you can.</p>
+  </header>
+  <div class="cab">
+    <div class="hud" aria-live="polite">
+      <div>Score<b id="score">0</b></div>
+      <div>Best<b id="hi">0</b></div>
+      <div>Lives<b id="lives">3</b></div>
+      <div>Wave<b id="wave">1</b></div>
+    </div>
+    <div class="screen">
+      <canvas id="game" width="480" height="640" tabindex="0" aria-label="Skywatch Defense game. Use the arrow keys to move and space to fire."></canvas>
+      <div class="overlay" id="overlay">
+        <h2 id="ov-title">Skywatch Defense</h2>
+        <p id="ov-text">Move with the arrow keys or A and D. Fire with space. P pauses.</p>
+        <button class="btn" id="ov-btn" type="button">Start</button>
+        <a class="btn alt" id="share" target="_blank" rel="noopener" hidden>Share your score on X</a>
+      </div>
+    </div>
+    <div class="pad" aria-hidden="true">
+      <button type="button" data-k="left">&#9664;</button>
+      <button type="button" data-k="right">&#9654;</button>
+      <button type="button" class="fire" data-k="fire">Fire</button>
+    </div>
+  </div>
+  <section class="how" aria-label="How to play">
+    <div><h3>Controls</h3><kbd>&larr;</kbd> <kbd>&rarr;</kbd> or <kbd>A</kbd> <kbd>D</kbd> to move, <kbd>Space</kbd> to fire, <kbd>P</kbd> to pause. On a phone, use the buttons under the screen.</div>
+    <div><h3>Points</h3><ul class="pts"><li><span>40</span> Saucer</li><li><span>30</span> Black triangle</li><li><span>20</span> Tic Tac</li><li><span>10</span> Orb</li><li><span>???</span> Red cigar mothership</li></ul></div>
+    <div><h3>Tips</h3>Hide behind the radar shields, but they wear down. The formation speeds up as it thins out, and every wave starts lower. Clear a wave for a bonus.</div>
+  </section>
+  <p class="note">The craft are based on real report shapes. See where each one comes from in the <a href="../craft-types/">craft types guide</a>.</p>
+</div></main>
+<script src="game.js?v=1" defer></script>
+<footer><div class="wrap site-foot"><p>Affiliate disclosure: links marked "Check price" may be affiliate links. If you buy through them, this site may earn a commission at no added cost to you. Figures are from public government reports; follow the sources and judge for yourself.</p><p>As an Amazon Associate, Skywatch Ledger earns from qualifying purchases.</p><nav><a href="../">Home</a><a href="../blog/">UAP Log</a><a href="../is-it-a-ufo/">UFO checker</a><a href="../timeline/">Timeline</a><a href="../evidence/">Evidence room</a><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of use</a></nav></div></footer>
+<script>(function(){var p=location.pathname.replace(/index\.html$/,"");document.querySelectorAll(".tn-links a").forEach(function(a){var h=new URL(a.href).pathname;if(h!=="/"&&p.indexOf(h)===0)a.setAttribute("aria-current","page");});})();</script>
+<script>(function(){var d=document.querySelector(".tn-dd");if(!d)return;var b=d.querySelector(".tn-dd-btn");b.addEventListener("click",function(e){e.stopPropagation();var o=d.classList.toggle("open");b.setAttribute("aria-expanded",o);});document.addEventListener("click",function(){d.classList.remove("open");b.setAttribute("aria-expanded","false");});document.addEventListener("keydown",function(e){if(e.key==="Escape"){d.classList.remove("open");b.setAttribute("aria-expanded","false");}});if(location.pathname.indexOf("/evidence/")===0)b.setAttribute("aria-current","page");})();</script>
+</body>
+</html>
