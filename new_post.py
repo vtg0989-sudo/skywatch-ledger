@@ -13,6 +13,8 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 CFG = dict(l.split('=',1) for l in open(os.path.join(ROOT,'site.cfg')).read().split('\n') if '=' in l)
 BASE = CFG['base_url'].rstrip('/') + '/'
 
+COMMENTS = open(os.path.join(ROOT,'_comments.html')).read() if os.path.exists(os.path.join(ROOT,'_comments.html')) else ''
+
 def head(root, title, desc):
     h = open(os.path.join(ROOT,'_head.html')).read().replace('{root}', root)
     h = re.sub(r'<title>.*?</title>', f'<title>{html.escape(title)}</title>', h)
@@ -53,7 +55,8 @@ def main():
     d = datetime.date.fromisoformat(date)
     page = (head('../', f'{title} | {CFG["site_name"]}', excerpt) +
       f'<div class="wrap post-page"><nav class="crumbs"><a href="../">{html.escape(CFG["site_name"])}</a> / <a href="./">{html.escape(CFG["blog_name"])}</a></nav>\n'
-      f'<article class="post"><time datetime="{date}">{d.strftime("%b %-d, %Y")}</time><h1>{html.escape(title)}</h1>\n' + (f'<figure class="ph hero"><img src="{html.escape(img[0])}" alt="" loading="lazy"><figcaption>{html.escape(img[2])} · <a href="{html.escape(img[1])}" target="_blank" rel="noopener">{html.escape(img[3])}</a></figcaption></figure>\n' if img else '') + f'{body}\n</article>\n'
+      f'<article class="post"><time datetime="{date}">{d.strftime("%b %-d, %Y")}</time><h1>{html.escape(title)}</h1>\n' + (f'<figure class="ph hero"><img src="{html.escape(img[0])}" alt="" loading="lazy"><figcaption>{html.escape(img[2])} · <a href="{html.escape(img[1])}" target="_blank" rel="noopener">{html.escape(img[3])}</a></figcaption></figure>\n' if img else '') + f'{body}\n</article>\n' +
+      COMMENTS +
       f'<p class="back"><a href="./">More from the {html.escape(CFG["blog_name"].lower())}</a></p></div>\n'
       + open(os.path.join(ROOT,'_footer.html')).read().replace('{root}','../') + '</body>\n</html>\n')
     if img:
