@@ -5,3 +5,4 @@
 - 2026-10-30 | Private jet pilots report silver pill-shaped object near 41,000 ft over Ohio (Aug 16, NUFORC report) | https://www.aol.com/articles/stunned-pilots-spot-strange-pill-145600000.html
 - 2026-10-30 | Glowing light columns reported over Minsk, Oct 28 (likely light pillars) | https://nashaniva.com/en/408066
 - 2026-11-01 | Drones close Jersey Airport runway two nights running (Oct 30–31), flights diverted, police seeking operator | https://jerseyeveningpost.com/news/2026/10/31/flights-diverted-after-drone-reports-spark-major-operation-near-jersey-airport/
+- 2026-11-03 | Bright streak/fireball filmed over northern Vietnam, Nov 1 (likely large meteor) | https://news.tuoitre.vn/mysterious-light-streaks-across-northern-vietnams-night-sky-103261102114336811.htm
