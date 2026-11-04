@@ -9,3 +9,4 @@
 - 2026-11-04 | Webcam films lights near Popocatépetl volcano, Nov 2 night (CENAPRED: likely camera effects/insects/satellites) | https://www.unotv.com/estados/puebla/captan-extranas-luces-en-movimiento-sobre-el-popocatepetl-durante-la-noche-de-dia-de-muertos/
 - 2026-11-04 | Bright trailing light filmed across Chubut and Santa Cruz, Argentina, Nov 2 (likely CZ-2C rocket re-entry, unconfirmed) | https://laopinionaustral.com.ar/chubut/misteriosas-luces-iluminaron-el-cielo-de-santa-cruz-que-fue-lo-que-se-vio-727190.html
 - 2026-11-04 | Idaho deer hunter BFRO report of knocking/smell/voice near St. Maries, Oct 20 (weak, anonymous) | https://wfmd.com/2026/11/03/idaho-deer-hunter-reports-bigfoot-encounter-in-remote-woods-after-he-smells-the-smell
+- 2026-11-04 | Large glowing object filmed over Chignahuapan, Puebla, Nov 1 (likely giant cantoya balloon from Zongozotla contest) | https://www.razon.com.mx/virales/2026/11/02/es-real-el-ovni-en-chignahuapan-esto-se-sabe-video/
