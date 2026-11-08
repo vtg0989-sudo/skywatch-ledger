@@ -16,3 +16,5 @@
 - 2026-11-08 | Gillette, WY woman films three rotating lights; MUFON state director has no explanation (Cowboy State Daily, Nov 5) | https://cowboystatedaily.com/2026/11/05/ufo-investigator-stumped-by-gillette-womans-new-footage-of-three-rotating-lights
 - 2026-11-08 | New Punta del Este, Uruguay light videos; Air Force CRIDOVNI says Starlink (Nov 6) | https://examedia.com.ar/portada/post/88194702
 - 2026-11-08 | FAA FOIA records on Sept 4 San Diego airport drone ground stop, military prepared to engage (Black Vault, Nov 3) | https://theblackvault.com/documentarchive/faa-records-reveal-military-prepared-to-engage-drone-during-san-diego-airport-shutdown-atc-audio-references-possible-shootdown
+- 2026-11-08 | Fireball seen across Beijing, Hebei, Shanxi and nearby provinces, Nov 6 18:31 local (astronomers: meteoroid) | https://www.vulkane.net/blogmobil/meteore-helle-feuerkugeln-ueber-china-und-den-usa/
+- 2026-11-08 | NASA all-sky cameras track fireball from Robbinsville NC to East Ridge TN, Nov 5 ~7:45 pm ET (event 20261106-004521) | https://www.charlottestories.com/nasa-confirms-asteroid-blazed-across-north-carolina-night-sky/
